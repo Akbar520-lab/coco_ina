@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coco_ina.com - Global Coconut Supplier</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-top: #a58e74; /* Cokelat muda hangat sesuai bagian atas gambar */
+            --bg-bottom: #2d5543; /* Hijau tua bertekstur untuk bagian tengah & bawah */
+            --text-dark: #2b2218;
+            --text-light: #ffffff;
+            
+            /* Warna 3 Produk */
+            --young-coconut: #8ca668; /* Hijau muda */
+            --mature-coconut: #3d2516; /* Cokelat tua */
+            --coco-charcoal: #141414; /* Hitam arang */
+            
+            /* Warna 3 Profil Bawah */
+            --card-about: #39634f;
+            --card-vision: #203f31;
+            --card-benefits: #c3a484;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-bottom);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- 1. BAGIAN ATAS (HERO) --- */
+        .section-top {
+            background-color: var(--bg-top);
+            padding: 90px 0 140px 0;
+            position: relative;
+            /* Membuat lengkungan halus di bawah section atas */
+            border-bottom-left-radius: 60px;
+            border-bottom-right-radius: 60px;
+            color: var(--text-dark);
+            z-index: 1;
+        }
+
+        /* Placeholder daun di sisi kanan atas */
+        .leaves-holder {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .hero-text {
+            max-width: 500px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.8rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 15px;
+            color: #2b2218;
+        }
+
+        .hero-text p {
+            font-size: 1.05rem;
+            line-height: 1.5;
+            margin-bottom: 30px;
+            opacity: 0.85;
+        }
+
+        .btn-main {
+            display: inline-block;
+            background-color: #dfb288;
+            color: #3d2516;
+            padding: 12px 35px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .btn-main:hover {
+            transform: translateY(-2px);
+        }
+
+        /* --- 2. BAGIAN TENGAH (BANNER FITUR) --- */
+        .section-middle {
+            margin-top: -80px;
+            position: relative;
+            z-index: 10;
+            margin-bottom: 60px;
+        }
+
+        .features-blur-card {
+            background: linear-gradient(135deg, rgba(20, 50, 38, 0.85), rgba(12, 34, 25, 0.95));
+            border-radius: 35px;
+            padding: 45px 30px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .feature-box {
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .feature-box i {
+            font-size: 1.8rem;
+            color: #dfb288;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .feature-box h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .feature-box p {
+            font-size: 0.78rem;
+            opacity: 0.65;
+            line-height: 1.5;
+        }
+
+        /* --- 3. BAGIAN BAWAH (GRID 3x2 KOTAK) --- */
+        .section-bottom {
+            padding-bottom: 80px;
+        }
+
+        .grid-holder {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        /* Desain kotak presisi persis gambar dengan sudut sangat membulat */
+        .square-card {
+            border-radius: 32px;
+            padding: 40px 25px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 260px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .square-card:hover {
+            transform: scale(1.02);
+        }
+
+        .square-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .square-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .square-card p {
+            font-size: 0.82rem;
+            line-height: 1.6;
+            opacity: 0.85;
+        }
+
+        /* Pewarnaan Baris Produk (Atas) */
+        .prod-young { background-color: var(--young-coconut); color: #1c3325; }
+        .prod-mature { background-color: var(--mature-coconut); color: var(--text-light); }
+        .prod-charcoal { background-color: var(--coco-charcoal); color: var(--text-light); }
+
+        /* Pewarnaan Baris Profil (Bawah) */
+        .prof-about { background-color: var(--card-about); color: var(--text-light); }
+        .prof-vision { background-color: var(--card-vision); color: var(--text-light); }
+        .prof-benefits { background-color: var(--card-benefits); color: #3d2516; }
+
+        .benefits-items {
+            list-style: none;
+            text-align: left;
+            width: 100%;
+        }
+        .benefits-items li {
+            font-size: 0.8rem;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+        }
+        .benefits-items li i { margin-right: 8px; font-size: 0.75rem; }
+
+        /* --- WHATSAPP BUTTON & FOOTER --- */
+        .wa-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 999;
+            text-decoration: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.8rem;
+            opacity: 0.5;
+            background-color: #1a362a;
+        }
+
+        /* --- RESPONSIVE UNTUK HP --- */
+        @media (max-width: 992px) {
+            .features-blur-card { grid-template-columns: repeat(2, 1fr); gap: 25px; }
+            .grid-holder { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .section-top { text-align: center; padding: 60px 0 110px 0; }
+            .hero-text h1 { font-size: 2.8rem; }
+            .features-blur-card { grid-template-columns: 1fr; }
+            .grid-holder { grid-template-columns: 1fr; }
+            .square-card { min-height: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. BAGIAN ATAS: HERO SECTION (Latar Cokelat Muda Clay) -->
+    <section class="section-top">
+        <div class="leaves-holder"></div> <!-- Taruh elemen gambar daun kelapa di dalam sini nanti -->
+        <div class="container">
+            <div class="hero-text">
+                <h1>coco_ina.com</h1>
+                <p>COCO INA - Your Premium Global Coconut Partner. Delivering the finest quality of tropical coconut derivatives tailored perfectly for global industrial demands.</p>
+                <a href="https://wa.me/6281234567890" target="_blank" class="btn-main">Contact Us Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. BAGIAN TENGAH: BANNER FITUR (Menyatu Gelap & Blur) -->
+    <section class="section-middle">
+        <div class="container">
+            <div class="features-blur-card">
+                <div class="feature-box">
+                    <i class="fa-solid fa-seedling"></i>
+                    <h3>Quality Sourcing</h3>
+                    <p>Premium coconuts straight from ecological plantation networks.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fa-solid fa-ship"></i>
+                    <h3>Global Export</h3>
+                    <p>Highly dynamic worldwide logistics delivery integration.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h3>Certified Standards</h3>
+                    <p>Strict quality control protocols following global trade safety.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fa-solid fa-comments"></i>
+                    <h3>Dedicated Support</h3>
+                    <p>24/7 client coordination channels tailored for international buyers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. BAGIAN BAWAH: 6 GRID KOTAK (Latar Hijau Tua) -->
+    <section class="section-bottom">
+        <div class="container">
+            <div class="grid-holder">
+                
+                <!-- Kotak 1: Young Coconut (Baris Atas - Hijau Muda) -->
+                <div class="square-card prod-young">
+                    <div class="icon">🥥</div>
+                    <h3>Young Coconut</h3>
+                    <p>Premium selection of young coconuts packed with refreshing natural water and tender meat, directly serving worldwide healthy beverage industries.</p>
+                </div>
+
+                <!-- Kotak 2: Mature Coconut (Baris Atas - Cokelat Tua) -->
+                <div class="square-card prod-mature">
+                    <div class="icon"><i class="fa-solid fa-circle" style="color: #5c3a21;"></i></div>
+                    <h3>Mature Coconut</h3>
+                    <p>Fully husked mature coconuts rich in high fat yields. Excellent raw materials for coconut oil, dessicated powder, and coconut milk production.</p>
+                </div>
+
+                <!-- Kotak 3: Coco Charcoal (Baris Atas - Hitam) -->
+                <div class="square-card prod-charcoal">
+                    <div class="icon"><i class="fa-solid fa-cubes" style="color: #333;"></i></div>
+                    <h3>Coco Charcoal</h3>
+                    <p>100% natural shell charcoal briquettes. Provides long-lasting high calories, zero odor, minimal ash, designed perfectly for shisha and grill setups.</p>
+                </div>
+
+                <!-- Kotak 4: About Us (Baris Bawah - Hijau Profil) -->
+                <div class="square-card prof-about">
+                    <div class="icon"><i class="fa-solid fa-circle-info"></i></div>
+                    <h3>About Us</h3>
+                    <p>Coco Ina is an established global supplier shipping premier Indonesian coconut products worldwide. We integrate local values with global corporate demands.</p>
+                </div>
+
+                <!-- Kotak 5: Vision & Mission (Baris Bawah - Hijau Gelap) -->
+                <div class="square-card prof-vision">
+                    <div class="icon"><i class="fa-solid fa-bullseye"></i></div>
+                    <h3>Vision & Mission</h3>
+                    <p>To lead sustainable global coconut supply chains, giving back support to local farming communities while securing top trading consistency for global clients.</p>
+                </div>
+
+                <!-- Kotak 6: Key Benefits (Baris Bawah - Cokelat Sand) -->
+                <div class="square-card prof-benefits">
+                    <div class="icon"><i class="fa-solid fa-bars"></i></div>
+                    <h3>Key Benefits</h3>
+                    <ul class="benefits-items">
+                        <li><i class="fa-solid fa-check"></i> Sustainable Eco-Friendly Core</li>
+                        <li><i class="fa-solid fa-check"></i> Industrial High Volume Capacity</li>
+                        <li><i class="fa-solid fa-check"></i> Competitive Direct Manufacturer Rates</li>
+                        <li><i class="fa-solid fa-check"></i> End-to-End Export Logistics Security</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 coco_ina.com. All Rights Reserved. | Your Global Coconut Partner</p>
+        </div>
+    </footer>
+
+    <!-- FLOAT WHATSAPP BUTTON -->
+    <a href="https://wa.me/6281234567890?text=Hello%20Coco%20Ina,%20I%20am%20interested%20in%20your%20products." class="wa-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
