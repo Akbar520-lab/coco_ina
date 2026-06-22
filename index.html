@@ -48,22 +48,28 @@
             padding: 0 20px;
         }
 
-            .section-top {
-        background-color: var(--bg-top);
-        padding: 90px 0 140px 0;
-        position: relative;
-        border-bottom-left-radius: 60px;
-        border-bottom-right-radius: 60px;
-        color: var(--text-light);
-        will-change: transform; 
-        z-index: 1;
-        
-        /* Menggunakan Flexbox untuk dorong konten ke kanan atas */
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end; /* Memindahkan konten ke sisi kanan */
-        text-align: right;     /* Membuat tulisan rata kanan */
-    }
+            /* --- HERO SECTION ATAS (PC/DESKTOP) --- */
+        .section-top {
+            background-color: var(--bg-top);
+            padding: 90px 0 140px 0;
+            position: relative;
+            border-bottom-left-radius: 60px;
+            border-bottom-right-radius: 60px;
+            color: var(--text-light);
+            will-change: transform; 
+            z-index: 1;
+
+            /* Gunakan flexbox pada section utama agar isi containernya bisa didorong ke kanan */
+            display: flex !important;
+            justify-content: flex-end !important; 
+        }
+
+        /* Biarkan container menyesuaikan diri secara flex */
+        .section-top .container {
+            display: flex !important;
+            justify-content: flex-end !important;
+            width: 100% !important;
+        }
 
         /* --- KONTEN CONTAINER SETELAHNYA (CONTAINER UTAMA CARD) --- */
         /* Pastikan container atau section yang membungkus card fitur kamu memiliki z-index lebih tinggi */
@@ -84,9 +90,18 @@
             pointer-events: none;
         }
 
-        .hero-text {
-    max-width: 600px; /* Membatasi lebar teks agar rapi */
-    padding-right: 10%; /* Mengatur jarak dari pinggir kanan */
+        /* Mengatur box teks di bagian kanan PC */
+.hero-text {
+    max-width: 500px !important;    
+    text-align: right !important;   
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important; /* Menjaga tombol tetap rata kanan */
+    padding-right: 20px !important;
+}
+
+.hero-text p {
+    text-align: right !important;
 }
 
         .hero-text h1 {
@@ -262,29 +277,48 @@
             background-color: #1a362a;
         }
  
-                
-        @media (max-width: 768px) {
-            /* --- MEMBUAT TEXT HERO DI HP IKUT KE KANAN ATAS --- */
-            .section-top { 
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: flex-end !important; /* Paksa konten ke kanan di HP */
-                text-align: right !important;      /* Ubah dari center ke right */
-                padding: 40px 0 100px 0 !important; /* Menyesuaikan padding atas HP */
-            }
+                    
+    @media (max-width: 768px) {
+        /* --- HERO SECTION (HP) --- */
+        .section-top { 
+            padding: 50px 0 110px 0 !important; 
+            display: flex !important;
+            justify-content: flex-end !important;
+        }
 
-            .hero-text {
-                max-width: 100% !important;
-                padding-right: 20px !important; /* Jarak aman dari pinggir kanan layar HP */
-                padding-left: 40px !important;  /* Menjaga space agar teks tidak kepanjangan ke kiri */
-            }
-            
-            /* Memastikan tombol "Contact Us Now" juga ikut bergeser rapi di kanan bawah teks */
-            .hero-text .btn, .hero-text a {
-                align-self: flex-end !important;
-                margin-left: auto !important;
-                margin-right: 0 !important;
-            }            
+        .section-top .container {
+            display: flex !important;
+            justify-content: flex-end !important;
+            padding: 0 15px !important; /* Jarak aman bawaan layar agar tidak tumpah */
+        }
+
+        .hero-text {
+            /* Menggunakan lebar 65% agar teksnya tidak menabrak sisi kiri, 
+            dan pas berada di area kanan atas halaman HP */
+            max-width: 65% !important;      
+            text-align: right !important;   
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: flex-end !important;
+            padding-right: 0 !important;
+        }
+
+        .hero-text h1 {
+            font-size: 1.8rem !important; /* Ukuran pas di HP agar teks "coco_ina.com" tidak patah berantakan */
+            margin-bottom: 8px !important;
+        }
+
+        .hero-text p {
+            font-size: 0.7rem !important;
+            line-height: 1.4 !important;
+            text-align: right !important;
+        }
+        
+        .hero-text .btn, .hero-text a {
+            font-size: 0.75rem !important;
+            padding: 8px 16px !important;
+        }
+    
             /* --- BANNER FITUR (Diperbaiki agar Pas di Tengah & Presisi) --- */
             .features-blur-card {
                 display: grid !important;
