@@ -35,10 +35,18 @@
         }
 
         body {
-           background: url('hero-bg.png') no-repeat center center;
+            background: url('hero-bg.png') no-repeat center center;
             background-size: cover;
             padding: 120px 0 180px 0; /* Padding disesuaikan agar background terekspos mewah */
             position: relative;
+            border-bottom-left-radius: 60px;
+            border-bottom-right-radius: 60px;
+            color: var(--text-light);
+            will-change: transform; 
+            z-index: 1;
+            overflow: hidden;
+            color: var(--text-light);
+            overflow-x: hidden;
         }
 
         .container {
@@ -237,12 +245,11 @@
 
         /* --- RESPONSIVE UNTUK HP --- */
         @media (max-width: 768px) {
-        body {
-           background: url('hero-bg.png') no-repeat center center;
-            background-size: cover;
-            padding: 120px 0 180px 0; /* Padding disesuaikan agar background terekspos mewah */
-            position: relative;
-        }
+            .section-top { 
+                padding: 80px 0 150px 0 !important; 
+                background-position: center center !important; 
+            }
+
             .hero-text {
                 max-width: 100% !important; 
                 text-align: left !important;   
