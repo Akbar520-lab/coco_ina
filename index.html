@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>coco_ina.com - Global Coconut Supplier</title>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -42,11 +44,11 @@
             padding: 0 20px;
         }
 
-        /* --- 1. HERO SECTION & BACKGROUND FULL --- */
+        /* --- 1. HERO SECTION --- */
         .hero-section-wrapper {
             background: url('hero-bg.png') no-repeat center center;
             background-size: cover;
-            padding: 100px 0 80px 0; /* Mengatur jarak atas bawah */
+            padding: 100px 0 80px 0; 
             position: relative;
             width: 100%;
         }
@@ -57,7 +59,7 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start; 
-            margin-bottom: 80px; /* Memberi jarak ke area fitur di bawahnya */
+            margin-bottom: 60px; 
         }
 
         .hero-text h1 {
@@ -66,7 +68,7 @@
             line-height: 1.1;
             margin-bottom: 20px;
             color: #ffffff;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.5); 
+            text-shadow: 0 4px 15px rgba(0,0,0,0.4); 
         }
 
         .hero-text p {
@@ -74,7 +76,7 @@
             line-height: 1.6;
             margin-bottom: 35px;
             color: rgba(255, 255, 255, 0.95);
-            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
         }
 
         .btn-main {
@@ -94,41 +96,41 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.3);
         }
 
-        /* --- 2. SECTION FITUR (KOTAK DIHAPUS, TRANSPARAN FULL) --- */
-        .features-transparent-row {
+        /* --- 2. CARD FITUR (PERSIS SEPERTI IMAGE_AD14AA.JPG) --- */
+        .features-card-container {
+            background-color: #1a4435; /* Warna hijau tosca tua pekat sesuai gambar kanan */
+            border-radius: 35px; /* Sudut melengkung halus */
+            padding: 55px 40px;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 30px;
             width: 100%;
-            padding-top: 20px;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.3);
         }
 
         .feature-box {
-            text-align: left; /* Teks rata kiri agar rapi */
+            text-align: center; /* Rata tengah untuk ikon dan teks */
         }
 
         .feature-box i {
-            font-size: 2rem;
-            color: #dfb288;
-            margin-bottom: 15px;
+            font-size: 2.6rem;
+            color: #ffffff; /* Ikon putih bersih */
+            margin-bottom: 20px;
             display: inline-block;
-            /* Memberikan efek bayangan lembut pada ikon agar kontras di atas foto */
-            filter: drop-shadow(0px 2px 5px rgba(0,0,0,0.4)); 
         }
 
         .feature-box h3 {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             color: #ffffff;
-            text-shadow: 0 2px 6px rgba(0,0,0,0.6); /* Kontras teks di atas foto */
+            letter-spacing: 0.3px;
         }
 
         .feature-box p {
             font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.8); /* Teks putih transparan lembut */
             line-height: 1.6;
-            text-shadow: 0 1px 4px rgba(0,0,0,0.6); /* Kontras teks di atas foto */
         }
 
         /* --- 3. KOTAK GRID 6 DI BAWAH --- */
@@ -232,11 +234,12 @@
 
             .hero-text h1 { font-size: 2.6rem; }
             .hero-text p { font-size: 0.95rem; margin-bottom: 25px; }
-            .hero-text { margin-bottom: 50px; }
 
-            .features-transparent-row {
+            .features-card-container {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 25px;
+                padding: 35px 20px;
+                border-radius: 24px;
             }
 
             .grid-holder {
@@ -246,7 +249,7 @@
         }
 
         @media (max-width: 480px) {
-            .features-transparent-row {
+            .features-card-container {
                 grid-template-columns: 1fr;
             }
             .grid-holder {
@@ -257,16 +260,19 @@
 </head>
 <body>
 
+    <!-- 1. HERO SECTION -->
     <section class="hero-section-wrapper">
         <div class="container">
             
+            <!-- Teks Utama Hero -->
             <div class="hero-text">
                 <h1>coco_ina.com</h1>
                 <p>COCO INA - Your Premium Global Coconut Partner. Delivering the finest quality of tropical coconut derivatives tailored perfectly for global industrial demands.</p>
                 <a href="https://wa.me/6281234567890" target="_blank" class="btn-main">Contact Us Now</a>
             </div>
 
-            <div class="features-transparent-row">
+            <!-- 2. CARD BOX BARU (WARNA & STYLE PERSIS SEPERTI GAMBAR KANAN) -->
+            <div class="features-card-container">
                 <div class="feature-box">
                     <i class="fa-solid fa-seedling"></i>
                     <h3>Quality Sourcing</h3>
@@ -292,6 +298,7 @@
         </div>
     </section>
 
+    <!-- 3. KOTAK GRID 6 BAWAH -->
     <section class="section-bottom">
         <div class="container">
             <div class="grid-holder">
@@ -341,12 +348,14 @@
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
         <div class="container">
             <p>&copy; 2026 coco_ina.com. All Rights Reserved. | Your Global Coconut Partner</p>
         </div>
     </footer>
 
+    <!-- FLOAT WHATSAPP -->
     <a href="https://wa.me/6281234567890" class="wa-float" target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
