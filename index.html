@@ -4,22 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>coco_ina.com - Global Coconut Supplier</title>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --bg-bottom: #1c3027; /* Warna dasar hijau gelap untuk area bawah */
+            --bg-bottom: #1c3027; 
             --text-light: #ffffff;
             
-            /* Warna 3 Produk */
+            /* Warna Produk */
             --young-coconut: #8ca668; 
             --mature-coconut: #3d2516; 
             --coco-charcoal: #141414; 
             
-            /* Warna 3 Profil Bawah */
+            /* Warna Profil Bawah */
             --card-about: #39634f;
             --card-vision: #203f31;
             --card-benefits: #c3a484;
@@ -44,11 +42,11 @@
             padding: 0 20px;
         }
 
-        /* --- 1. HERO SECTION (FOTO HANYA DI SINI) --- */
+        /* --- 1. HERO SECTION & BACKGROUND FULL --- */
         .hero-section-wrapper {
             background: url('hero-bg.png') no-repeat center center;
             background-size: cover;
-            padding: 140px 0 160px 0; 
+            padding: 100px 0 80px 0; /* Mengatur jarak atas bawah */
             position: relative;
             width: 100%;
         }
@@ -59,6 +57,7 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start; 
+            margin-bottom: 80px; /* Memberi jarak ke area fitur di bawahnya */
         }
 
         .hero-text h1 {
@@ -67,7 +66,7 @@
             line-height: 1.1;
             margin-bottom: 20px;
             color: #ffffff;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.4); 
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5); 
         }
 
         .hero-text p {
@@ -75,7 +74,7 @@
             line-height: 1.6;
             margin-bottom: 35px;
             color: rgba(255, 255, 255, 0.95);
-            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
         }
 
         .btn-main {
@@ -95,51 +94,47 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.3);
         }
 
-        /* --- 2. BANNER FITUR (MENGGANTUNG AMAN) --- */
-        .section-middle {
-            margin-top: -60px; 
-            position: relative;
-            z-index: 10;
-            margin-bottom: 60px;
-        }
-
-        .features-blur-card {
-            background: linear-gradient(135deg, rgba(20, 50, 38, 0.95), rgba(12, 34, 25, 0.98));
-            border-radius: 35px;
-            padding: 45px 30px;
+        /* --- 2. SECTION FITUR (KOTAK DIHAPUS, TRANSPARAN FULL) --- */
+        .features-transparent-row {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.05);
+            gap: 30px;
+            width: 100%;
+            padding-top: 20px;
         }
 
         .feature-box {
-            text-align: center;
+            text-align: left; /* Teks rata kiri agar rapi */
         }
 
         .feature-box i {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: #dfb288;
             margin-bottom: 15px;
+            display: inline-block;
+            /* Memberikan efek bayangan lembut pada ikon agar kontras di atas foto */
+            filter: drop-shadow(0px 2px 5px rgba(0,0,0,0.4)); 
         }
 
         .feature-box h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #ffffff;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.6); /* Kontras teks di atas foto */
         }
 
         .feature-box p {
-            font-size: 0.78rem;
-            opacity: 0.7;
-            line-height: 1.5;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.6); /* Kontras teks di atas foto */
         }
 
-        /* --- 3. KOTAK GRID DI PALING BAWAH (BERSIH DARI FOTO) --- */
+        /* --- 3. KOTAK GRID 6 DI BAWAH --- */
         .section-bottom {
-            padding-bottom: 80px;
-            background-color: var(--bg-bottom); /* Memastikan background polos */
+            padding: 80px 0;
+            background-color: var(--bg-bottom); 
         }
 
         .grid-holder {
@@ -182,7 +177,7 @@
             opacity: 0.85;
         }
 
-        /* Pewarnaan Grid */
+        /* Warna Grid */
         .prod-young { background-color: var(--young-coconut); color: #1c3325; }
         .prod-mature { background-color: var(--mature-coconut); color: var(--text-light); }
         .prod-charcoal { background-color: var(--coco-charcoal); color: var(--text-light); }
@@ -203,7 +198,7 @@
         }
         .benefits-items li i { margin-right: 8px; }
 
-        /* --- WHATSAPP BUTTON & FOOTER --- */
+        /* FLOATING WHATSAPP & FOOTER */
         .wa-float {
             position: fixed;
             bottom: 30px;
@@ -232,48 +227,46 @@
         /* --- RESPONSIVE MOBILE --- */
         @media (max-width: 768px) {
             .hero-section-wrapper {
-                padding: 80px 0 120px 0;
+                padding: 60px 0 60px 0;
             }
 
             .hero-text h1 { font-size: 2.6rem; }
-            .hero-text p { font-size: 0.95rem; }
-            .section-middle { margin-top: -40px; margin-bottom: 40px; }
+            .hero-text p { font-size: 0.95rem; margin-bottom: 25px; }
+            .hero-text { margin-bottom: 50px; }
 
-            .features-blur-card {
+            .features-transparent-row {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-                padding: 25px 15px;
+                gap: 25px;
             }
 
             .grid-holder {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 12px;
             }
+        }
 
-            .square-card {
-                min-height: 220px;
-                padding: 20px 12px;
+        @media (max-width: 480px) {
+            .features-transparent-row {
+                grid-template-columns: 1fr;
+            }
+            .grid-holder {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. HERO SECTION (FOTO LATAR BELAKANG HANYA DI SINI) -->
     <section class="hero-section-wrapper">
         <div class="container">
+            
             <div class="hero-text">
                 <h1>coco_ina.com</h1>
                 <p>COCO INA - Your Premium Global Coconut Partner. Delivering the finest quality of tropical coconut derivatives tailored perfectly for global industrial demands.</p>
                 <a href="https://wa.me/6281234567890" target="_blank" class="btn-main">Contact Us Now</a>
             </div>
-        </div>
-    </section>
 
-    <!-- 2. BANNER FITUR -->
-    <section class="section-middle">
-        <div class="container">
-            <div class="features-blur-card">
+            <div class="features-transparent-row">
                 <div class="feature-box">
                     <i class="fa-solid fa-seedling"></i>
                     <h3>Quality Sourcing</h3>
@@ -295,10 +288,10 @@
                     <p>24/7 client coordination channels tailored for international buyers.</p>
                 </div>
             </div>
+
         </div>
     </section>
 
-    <!-- 3. KOTAK GRID 6 (BERSIH DARI FOTO BACKGROUND) -->
     <section class="section-bottom">
         <div class="container">
             <div class="grid-holder">
@@ -348,14 +341,12 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <div class="container">
             <p>&copy; 2026 coco_ina.com. All Rights Reserved. | Your Global Coconut Partner</p>
         </div>
     </footer>
 
-    <!-- FLOAT WHATSAPP -->
     <a href="https://wa.me/6281234567890" class="wa-float" target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
