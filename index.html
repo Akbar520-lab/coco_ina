@@ -46,87 +46,83 @@
             padding: 0 20px;
         }
 
-        /* --- HERO SECTION REVOLUTION (KIRI TEKS - KANAN FOTO) --- */
-        .section-top {
-            /* Menggunakan gambar 1782154106157.png sebagai latar belakang */
-            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('1782154106157.png') no-repeat center center;
-            background-size: cover;
-            padding: 100px 0 160px 0;
-            position: relative;
-            border-bottom-left-radius: 60px;
-            border-bottom-right-radius: 60px;
-            color: var(--text-light);
-            will-change: transform; 
-            z-index: 1;
-        }
+/* --- HERO SECTION WITH EXACT IMAGE ASSET --- */
+.section-top {
+    /* Memanggil langsung file gambar yang kamu masukkan ke asset tadi */
+    background: url('hero-bg.png') no-repeat center center;
+    background-size: cover; /* Gambar otomatis menyesuaikan dan menutup seluruh area hero */
+    padding: 100px 0 160px 0;
+    position: relative;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    color: #ffffff;
+    will-change: transform; 
+    z-index: 1;
+    overflow: hidden;
+}
 
-        /* Flexbox untuk membagi area menjadi kolom kiri (teks) dan kanan (foto) */
-        .section-top .container {
-            display: flex !important;
-            flex-direction: row !important;
-            justify-content: space-between !important;
-            align-items: flex-start !important;
-            width: 100% !important;
-        }
+/* Container untuk teks kiri dan kotak foto kanan */
+.section-top .container {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    position: relative;
+    z-index: 3;
+}
 
-        /* Kolom Kiri: Tempat tulisan rata kiri atas */
-        .hero-text {
-            flex: 1;
-            max-width: 550px !important;    
-            text-align: left !important;   
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: flex-start !important; 
-            margin-left: 0 !important;
-            margin-right: auto !important;
-            padding-left: 0 !important;
-        }
+.hero-text {
+    flex: 1;
+    max-width: 520px !important;    
+    text-align: left !important;   
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important; 
+    padding-left: 0 !important;
+}
 
-        .hero-text h1 {
-            font-size: 3.8rem;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            color: #ffffff !important; /* Diubah ke putih agar kontras dengan background baru */
-            text-shadow: 0 4px 15px rgba(0,0,0,0.4); 
-        }
+.hero-text h1 {
+    font-size: 3.8rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: #ffffff !important;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.35); /* Bayangan teks tebal agar sangat terbaca di atas tekstur background */
+}
 
-        .hero-text p {
-            text-align: left !important;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 35px;
-            color: rgba(255, 255, 255, 0.95) !important;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
-        }
+.hero-text p {
+    text-align: left !important;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 35px;
+    color: rgba(255, 255, 255, 0.95) !important;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
 
-        /* Kolom Kanan: Tempat untuk memasukkan foto di kanan atas */
-        .hero-image-box {
-            flex: 1;
-            display: flex;
-            justify-content: flex-end;
-            align-items: flex-start;
-            padding-left: 40px;
-            margin-top: 10px;
-        }
+.hero-image-box {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-left: 40px;
+}
 
-        /* Pengaturan bingkai/wadah untuk memasukkan foto */
-        .photo-placeholder {
-            width: 100%;
-            max-width: 420px;
-            height: 320px;
-            border-radius: 24px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px dashed rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(8px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
-        }
-
+/* Kotak kaca tempat masukin foto produk kamu di kanan atas */
+.photo-placeholder {
+    width: 100%;
+    max-width: 400px;
+    height: 340px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.35);
+}
         /* Jika nanti dimasukkan tag <img> di dalam placeholder ini */
         .photo-placeholder img {
             width: 100%;
