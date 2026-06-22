@@ -249,48 +249,54 @@
             background-color: #15251e;
         }
 /* --- RESPONSIVE MOBILE (PERBAIKAN AGAR COKELAT TETAP MUNCUL DI HP) --- */
+ /* --- RESPONSIVE MOBILE (COKELAT TETAP DI KANAN SEPERTI LAPTOP) --- */
         @media (max-width: 992px) {
             .hero-section-wrapper {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 60px 0 350px 0; /* Memberi ruang di bawah agar area cokelat & daun tidak menabrak teks */
+                flex-direction: row; /* Tetap horizontal */
+                align-items: center;
+                padding: 60px 0;
             }
 
-            /* Mengatur ulang area cokelat di HP agar pindah ke bawah teks secara estetik */
+            /* Area cokelat tetap di kanan, tapi lebarnya dikurangi agar tidak menabrak teks */
             .hero-section-wrapper::before {
-                width: 100%;
-                height: 300px; /* Tinggi area daun/cokelat di HP */
-                top: auto;
-                bottom: 0;
+                width: 35%; /* Mengurangi lebar di HP agar teks kiri punya ruang */
+                height: 100%;
+                top: 0;
+                bottom: auto;
                 right: 0;
-                /* Membuat potongan miring horizontal yang manis untuk layar HP */
-                clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+                clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%); /* Kemiringan diagonal dipertahankan */
                 z-index: 1;
             }
 
-            /* Menyesuaikan bayangan garis pembatas di HP */
+            /* Menyesuaikan bayangan garis pembatas diagonal di HP */
             .hero-section-wrapper::after {
-                top: auto;
-                bottom: 290px;
-                right: 0;
-                width: 100%;
-                height: 30px;
-                background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%);
-                transform: none;
+                top: 0;
+                bottom: auto;
+                right: 33%;
+                width: 30px;
+                height: 100%;
+                background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%);
+                transform: skewX(-12deg);
                 z-index: 2;
             }
 
+            /* Grid teks dibuat 1 kolom tapi diberi padding kanan agar tidak menembus area cokelat */
             .hero-content-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
             }
 
             .hero-text {
-                max-width: 100%;
+                max-width: 70%; /* Batasi teks agar berhenti sebelum area cokelat */
+                padding-right: 15px;
             }
 
             .hero-text h1 {
-                font-size: 3.2rem; /* Memperkecil ukuran font di HP agar tidak meluap */
+                font-size: 2.8rem; /* Perkecil ukuran judul agar muat di layar HP */
+            }
+
+            .hero-text p {
+                font-size: 0.95rem; /* Perkecil ukuran paragraf */
+                margin-bottom: 30px;
             }
 
             .features-card-container {
@@ -301,19 +307,23 @@
         }
 
         @media (max-width: 540px) {
-            .hero-text h1 {
-                font-size: 2.8rem;
+            .hero-text {
+                max-width: 65%; /* Lebih menyempit sedikit untuk HP yang sangat kecil */
             }
             
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+
             .features-card-container {
-                grid-template-columns: 1fr; /* Menjadi 1 kolom memanjang di HP sangat kecil */
+                grid-template-columns: 1fr;
             }
 
             .grid-holder {
                 grid-template-columns: 1fr;
             }
-        }
-            </style>
+        }          
+        </style>
 </head>
 <body>
 
