@@ -248,25 +248,72 @@
             opacity: 0.5;
             background-color: #15251e;
         }
-
-        /* --- RESPONSIVE MOBILE --- */
+/* --- RESPONSIVE MOBILE (PERBAIKAN AGAR COKELAT TETAP MUNCUL DI HP) --- */
         @media (max-width: 992px) {
-            .hero-section-wrapper::before { width: 100%; opacity: 0.15; clip-path: none; }
-            .hero-section-wrapper::after { display: none; }
-            .hero-content-grid { grid-template-columns: 1fr; }
-            .features-card-container { grid-template-columns: repeat(2, 1fr); }
+            .hero-section-wrapper {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 60px 0 350px 0; /* Memberi ruang di bawah agar area cokelat & daun tidak menabrak teks */
+            }
+
+            /* Mengatur ulang area cokelat di HP agar pindah ke bawah teks secara estetik */
+            .hero-section-wrapper::before {
+                width: 100%;
+                height: 300px; /* Tinggi area daun/cokelat di HP */
+                top: auto;
+                bottom: 0;
+                right: 0;
+                /* Membuat potongan miring horizontal yang manis untuk layar HP */
+                clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+                z-index: 1;
+            }
+
+            /* Menyesuaikan bayangan garis pembatas di HP */
+            .hero-section-wrapper::after {
+                top: auto;
+                bottom: 290px;
+                right: 0;
+                width: 100%;
+                height: 30px;
+                background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%);
+                transform: none;
+                z-index: 2;
+            }
+
+            .hero-content-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .hero-text {
+                max-width: 100%;
+            }
+
+            .hero-text h1 {
+                font-size: 3.2rem; /* Memperkecil ukuran font di HP agar tidak meluap */
+            }
+
+            .features-card-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                padding: 30px 20px;
+            }
         }
 
-        @media (max-width: 768px) {
-            .hero-text h1 { font-size: 3rem; }
-            .grid-holder { grid-template-columns: repeat(2, 1fr); }
-        }
+        @media (max-width: 540px) {
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+            
+            .features-card-container {
+                grid-template-columns: 1fr; /* Menjadi 1 kolom memanjang di HP sangat kecil */
+            }
 
-        @media (max-width: 500px) {
-            .features-card-container { grid-template-columns: 1fr; }
-            .grid-holder { grid-template-columns: 1fr; }
+            .grid-holder {
+                grid-template-columns: 1fr;
+            }
         }
-    </style>
+            </style>
 </head>
 <body>
 
