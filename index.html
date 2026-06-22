@@ -244,8 +244,10 @@
             opacity: 0.5;
             background-color: #1a362a;
         }
+ 
+        
 
-        /* --- RESPONSIVE UNTUK HP --- */
+       /* --- RESPONSIVE UNTUK HP --- */
         @media (max-width: 992px) {
             .features-blur-card { grid-template-columns: repeat(2, 1fr); gap: 25px; }
             .grid-holder { grid-template-columns: repeat(2, 1fr); }
@@ -254,9 +256,41 @@
         @media (max-width: 768px) {
             .section-top { text-align: center; padding: 60px 0 110px 0; }
             .hero-text h1 { font-size: 2.8rem; }
-            .features-blur-card { grid-template-columns: 1fr; }
-            .grid-holder { grid-template-columns: 1fr; }
-            .square-card { min-height: auto; }
+            
+            /* --- BANNER FITUR (Bisa Digeser) --- */
+            .features-blur-card {
+                display: flex !important;
+                overflow-x: auto !important;
+                scroll-snap-type: x mandatory;
+                gap: 16px;
+                padding: 30px 20px;
+                scrollbar-width: none; /* Sembunyikan scrollbar Firefox */
+            }
+            .features-blur-card::-webkit-scrollbar {
+                display: none; /* Sembunyikan scrollbar Chrome/Safari */
+            }
+            .feature-box {
+                min-width: 75%; /* Supaya box kedua agak mengintip di kanan */
+                scroll-snap-align: center;
+            }
+
+            /* --- KOTAK GRID 6 BAWAH (Bisa Digeser) --- */
+            .grid-holder {
+                display: flex !important;
+                overflow-x: auto !important;
+                scroll-snap-type: x mandatory;
+                gap: 16px;
+                padding-bottom: 20px;
+                scrollbar-width: none;
+            }
+            .grid-holder::-webkit-scrollbar {
+                display: none;
+            }
+            .square-card {
+                min-width: 80%; /* Ukuran pas untuk card di layar HP */
+                min-height: 280px;
+                scroll-snap-align: center;
+            }
         }
     </style>
 </head>
