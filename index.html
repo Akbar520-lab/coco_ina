@@ -46,96 +46,53 @@
             padding: 0 20px;
         }
 
-/* --- HERO SECTION WITH EXACT IMAGE ASSET --- */
-.section-top {
-    /* Memanggil langsung file gambar yang kamu masukkan ke asset tadi */
-    background: url('hero-bg.png') no-repeat center center;
-    background-size: cover; /* Gambar otomatis menyesuaikan dan menutup seluruh area hero */
-    padding: 100px 0 160px 0;
-    position: relative;
-    border-bottom-left-radius: 60px;
-    border-bottom-right-radius: 60px;
-    color: #ffffff;
-    will-change: transform; 
-    z-index: 1;
-    overflow: hidden;
-}
-
-/* Container untuk teks kiri dan kotak foto kanan */
-.section-top .container {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    width: 100% !important;
-    position: relative;
-    z-index: 3;
-}
-
-.hero-text {
-    flex: 1;
-    max-width: 520px !important;    
-    text-align: left !important;   
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important; 
-    padding-left: 0 !important;
-}
-
-.hero-text h1 {
-    font-size: 3.8rem;
-    font-weight: 700;
-    line-height: 1.1;
-    margin-bottom: 20px;
-    color: #ffffff !important;
-    text-shadow: 0 4px 12px rgba(0,0,0,0.35); /* Bayangan teks tebal agar sangat terbaca di atas tekstur background */
-}
-
-.hero-text p {
-    text-align: left !important;
-    font-size: 1.05rem;
-    line-height: 1.6;
-    margin-bottom: 35px;
-    color: rgba(255, 255, 255, 0.95) !important;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
-}
-
-.hero-image-box {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-left: 40px;
-}
-
-/* Kotak kaca tempat masukin foto produk kamu di kanan atas */
-.photo-placeholder {
-    width: 100%;
-    max-width: 400px;
-    height: 340px;
-    border-radius: 28px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(12px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.35);
-}
-        /* Jika nanti dimasukkan tag <img> di dalam placeholder ini */
-        .photo-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        /* --- HERO SECTION FULL BACKGROUND (KOTAK ATAS DIHAPUS) --- */
+        .section-top {
+            background: url('hero-bg.png') no-repeat center center;
+            background-size: cover;
+            padding: 120px 0 180px 0; /* Padding disesuaikan agar background terekspos mewah */
+            position: relative;
+            border-bottom-left-radius: 60px;
+            border-bottom-right-radius: 60px;
+            color: var(--text-light);
+            will-change: transform; 
+            z-index: 1;
+            overflow: hidden;
         }
 
-        .photo-placeholder span {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.8);
-            font-weight: 500;
-            text-align: center;
-            padding: 20px;
+        .section-top .container {
+            display: block !important; /* Kembali ke block karena hanya berisi teks tunggal */
+            width: 100% !important;
+        }
+
+        /* Mengatur rata kiri yang lega dan elegan */
+        .hero-text {
+            max-width: 750px !important; /* Lebar teks ditambah agar proporsional karena kotak kanan sudah hilang */
+            text-align: left !important;   
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: flex-start !important; 
+            margin-left: 0 !important;
+            margin-right: auto !important;
+            padding-left: 0 !important;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: #ffffff !important;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.4); 
+        }
+
+        .hero-text p {
+            text-align: left !important;
+            font-size: 1.15rem;
+            line-height: 1.6;
+            margin-bottom: 35px;
+            color: rgba(255, 255, 255, 0.95) !important;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
         }
 
         .btn-main {
@@ -246,12 +203,12 @@
             opacity: 0.85;
         }
 
-        /* Pewarnaan Baris Produk (Atas) */
+        /* Pewarnaan Baris Produk */
         .prod-young { background-color: var(--young-coconut); color: #1c3325; }
         .prod-mature { background-color: var(--mature-coconut); color: var(--text-light); }
         .prod-charcoal { background-color: var(--coco-charcoal); color: var(--text-light); }
 
-        /* Pewarnaan Baris Profil (Bawah) */
+        /* Pewarnaan Baris Profil */
         .prof-about { background-color: var(--card-about); color: var(--text-light); }
         .prof-vision { background-color: var(--card-vision); color: var(--text-light); }
         .prof-benefits { background-color: var(--card-benefits); color: #3d2516; }
@@ -299,12 +256,8 @@
         /* --- RESPONSIVE UNTUK HP --- */
         @media (max-width: 768px) {
             .section-top { 
-                padding: 60px 0 130px 0 !important; 
-            }
-
-            .section-top .container {
-                flex-direction: column !important; 
-                gap: 35px;
+                padding: 80px 0 150px 0 !important; 
+                background-position: center center !important; 
             }
 
             .hero-text {
@@ -315,26 +268,15 @@
             }
 
             .hero-text h1 {
-                font-size: 2.5rem !important; 
+                font-size: 2.8rem !important; 
                 margin-bottom: 12px !important;
             }
 
             .hero-text p {
-                font-size: 0.9rem !important;
+                font-size: 0.95rem !important;
                 line-height: 1.5 !important;
                 text-align: left !important;
-                margin-bottom: 25px !important;
-            }
-        
-            .hero-image-box {
-                padding-left: 0 !important;
-                justify-content: center !important;
-                width: 100%;
-            }
-
-            .photo-placeholder {
-                height: 240px;
-                max-width: 100%;
+                margin-bottom: 30px !important;
             }
         
             /* --- BANNER FITUR --- */
@@ -392,30 +334,18 @@
 </head>
 <body>
 
-    <!-- 1. BAGIAN ATAS: HERO SECTION (Latar Belakang Gambar Daun Estetik) -->
+    <!-- 1. BAGIAN ATAS: HERO SECTION FULL BACKGROUND WITHOUT BOX -->
     <section class="section-top">
         <div class="container">
-            
-            <!-- KOLOM KIRI: TULISAN RATA KIRI ATAS -->
             <div class="hero-text">
                 <h1>coco_ina.com</h1>
                 <p>COCO INA - Your Premium Global Coconut Partner. Delivering the finest quality of tropical coconut derivatives tailored perfectly for global industrial demands.</p>
                 <a href="https://wa.me/6281234567890" target="_blank" class="btn-main">Contact Us Now</a>
             </div>
-
-            <!-- KOLOM KANAN: AREA UNTUK MASUKIN FOTO DI KANAN ATAS -->
-            <div class="hero-image-box">
-                <div class="photo-placeholder">
-                    <!-- Jika ingin memasukkan foto langsung, hapus tag <span> di bawah dan ganti dengan: -->
-                    <!-- <img src="nama-file-foto-anda.png" alt="Coco Ina Product"> -->
-                    <span><i class="fa-regular fa-image" style="font-size: 2rem; margin-bottom: 10px; display: block;"></i>Tempat Masukin Foto Sisi Kanan Atas</span>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <!-- 2. BAGIAN TENGAH: BANNER FITUR (Menyatu Gelap & Blur) -->
+    <!-- 2. BAGIAN TENGAH: BANNER FITUR -->
     <section class="section-middle">
         <div class="container">
             <div class="features-blur-card">
@@ -443,47 +373,47 @@
         </div>
     </section>
 
-    <!-- 3. BAGIAN BAWAH: 6 GRID KOTAK (Latar Hijau Tua) -->
+    <!-- 3. BAGIAN BAWAH: 6 GRID KOTAK -->
     <section class="section-bottom">
         <div class="container">
             <div class="grid-holder">
                 
-                <!-- Kotak 1: Young Coconut (Baris Atas - Hijau Muda) -->
+                <!-- Kotak 1: Young Coconut -->
                 <div class="square-card prod-young">
                     <div class="icon">🥥</div>
                     <h3>Young Coconut</h3>
                     <p>Premium selection of young coconuts packed with refreshing natural water and tender meat, directly serving worldwide healthy beverage industries.</p>
                 </div>
 
-                <!-- Kotak 2: Mature Coconut (Baris Atas - Cokelat Tua) -->
+                <!-- Kotak 2: Mature Coconut -->
                 <div class="square-card prod-mature">
                     <div class="icon"><i class="fa-solid fa-circle" style="color: #5c3a21;"></i></div>
                     <h3>Mature Coconut</h3>
                     <p>Fully husked mature coconuts rich in high fat yields. Excellent raw materials for coconut oil, dessicated powder, and coconut milk production.</p>
                 </div>
 
-                <!-- Kotak 3: Coco Charcoal (Baris Atas - Hitam) -->
+                <!-- Kotak 3: Coco Charcoal -->
                 <div class="square-card prod-charcoal">
                     <div class="icon"><i class="fa-solid fa-cubes" style="color: #333;"></i></div>
                     <h3>Coco Charcoal</h3>
                     <p>100% natural shell charcoal briquettes. Provides long-lasting high calories, zero odor, minimal ash, designed perfectly for shisha and grill setups.</p>
                 </div>
 
-                <!-- Kotak 4: About Us (Baris Bawah - Hijau Profil) -->
+                <!-- Kotak 4: About Us -->
                 <div class="square-card prof-about">
                     <div class="icon"><i class="fa-solid fa-circle-info"></i></div>
                     <h3>About Us</h3>
                     <p>Coco Ina is an established global supplier shipping premier Indonesian coconut products worldwide. We integrate local values with global corporate demands.</p>
                 </div>
 
-                <!-- Kotak 5: Vision & Mission (Baris Bawah - Hijau Gelap) -->
+                <!-- Kotak 5: Vision & Mission -->
                 <div class="square-card prof-vision">
                     <div class="icon"><i class="fa-solid fa-bullseye"></i></div>
                     <h3>Vision & Mission</h3>
                     <p>To lead sustainable global coconut supply chains, giving back support to local farming communities while securing top trading consistency for global clients.</p>
                 </div>
 
-                <!-- Kotak 6: Key Benefits (Baris Bawah - Cokelat Sand) -->
+                <!-- Kotak 6: Key Benefits -->
                 <div class="square-card prof-benefits">
                     <div class="icon"><i class="fa-solid fa-bars"></i></div>
                     <h3>Key Benefits</h3>
@@ -512,7 +442,6 @@
     </a>
 
     <script>
-        // Mendeteksi gerakan scroll browser untuk efek parallax lambat pada background hero
         window.addEventListener('scroll', function() {
             const heroSection = document.querySelector('.section-top');
             let scrollPosition = window.pageYOffset;
