@@ -48,16 +48,26 @@
             padding: 0 20px;
         }
 
-        /* --- 1. BAGIAN ATAS (HERO) --- */
+            /* --- BAGIAN ATAS (HERO) --- */
         .section-top {
             background-color: var(--bg-top);
             padding: 90px 0 140px 0;
             position: relative;
-            /* Membuat lengkungan halus di bawah section atas */
             border-bottom-left-radius: 60px;
             border-bottom-right-radius: 60px;
-            color: var(--text-dark);
-            z-index: 1;
+            color: var(--text-light);
+            /* Mengunci posisi agar bisa kita manipulasi kecepatannya via JS */
+            will-change: transform; 
+            z-index: 1; 
+        }
+
+        /* --- KONTEN CONTAINER SETELAHNYA (CONTAINER UTAMA CARD) --- */
+        /* Pastikan container atau section yang membungkus card fitur kamu memiliki z-index lebih tinggi */
+        .content-section-wrapper { 
+            position: relative;
+            z-index: 2; /* Angka 2 lebih tinggi dari 1, sehingga otomatis menumpuk di atas hero */
+            background-color: var(--bg-bottom); /* Menjaga background bawah tetap solid */
+            margin-top: -50px; /* Menarik card agak ke atas sedikit agar estetik menabrak lengkungan */
         }
 
         /* Placeholder daun di sisi kanan atas */
@@ -416,5 +426,23 @@
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
+    <script>
+    // Mendeteksi gerakan scroll browser
+    window.addEventListener('scroll', function() {
+        // Mengambil elemen hero section atas
+        const heroSection = document.querySelector('.section-top');
+        
+        // Mengambil jarak seberapa jauh layar sudah di-scroll
+        let scrollPosition = window.pageYOffset;
+        
+        /* Rumus Parallax: 
+           Kita geser posisinya ke bawah (Y) sebesar 0.4 kali dari kecepatan scroll asli.
+           Ini membuat gerakannya terasa 60% lebih lambat dan tertinggal di belakang secara halus!
+        */
+        if (window.innerWidth > 0) { // Efek ini aktif di semua ukuran layar (termasuk HP)
+            heroSection.style.transform = 'translateY(' + (scrollPosition * 0.4) + 'px)';
+        }
+    });
+</script>
 </body>
 </html>
