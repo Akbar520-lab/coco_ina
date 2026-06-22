@@ -11,15 +11,13 @@
     
     <style>
         :root {
-            --bg-middle: #315847;    /* Tengah: Hijau sedikit gelap untuk penyeimbang */
-            --bg-bottom: #1c3027;
-            --text-dark: #2b2218;
+            --bg-bottom: #1c3027; /* Warna dasar hijau gelap untuk area bawah */
             --text-light: #ffffff;
             
             /* Warna 3 Produk */
-            --young-coconut: #8ca668; /* Hijau muda */
-            --mature-coconut: #3d2516; /* Cokelat tua */
-            --coco-charcoal: #141414; /* Hitam arang */
+            --young-coconut: #8ca668; 
+            --mature-coconut: #3d2516; 
+            --coco-charcoal: #141414; 
             
             /* Warna 3 Profil Bawah */
             --card-about: #39634f;
@@ -46,35 +44,21 @@
             padding: 0 20px;
         }
 
-        /* --- HERO SECTION FULL BACKGROUND (KOTAK ATAS DIHAPUS) --- */
-        .section-top {
+        /* --- 1. HERO SECTION (FOTO HANYA DI SINI) --- */
+        .hero-section-wrapper {
             background: url('hero-bg.png') no-repeat center center;
             background-size: cover;
-            padding: 120px 0 180px 0; /* Padding disesuaikan agar background terekspos mewah */
+            padding: 140px 0 160px 0; 
             position: relative;
-            border-bottom-left-radius: 60px;
-            border-bottom-right-radius: 60px;
-            color: var(--text-light);
-            will-change: transform; 
-            z-index: 1;
-            overflow: hidden;
+            width: 100%;
         }
 
-        .section-top .container {
-            display: block !important; /* Kembali ke block karena hanya berisi teks tunggal */
-            width: 100% !important;
-        }
-
-        /* Mengatur rata kiri yang lega dan elegan */
         .hero-text {
-            max-width: 750px !important; /* Lebar teks ditambah agar proporsional karena kotak kanan sudah hilang */
-            text-align: left !important;   
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: flex-start !important; 
-            margin-left: 0 !important;
-            margin-right: auto !important;
-            padding-left: 0 !important;
+            max-width: 750px; 
+            text-align: left;   
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; 
         }
 
         .hero-text h1 {
@@ -82,16 +66,15 @@
             font-weight: 700;
             line-height: 1.1;
             margin-bottom: 20px;
-            color: #ffffff !important;
+            color: #ffffff;
             text-shadow: 0 4px 15px rgba(0,0,0,0.4); 
         }
 
         .hero-text p {
-            text-align: left !important;
             font-size: 1.15rem;
             line-height: 1.6;
             margin-bottom: 35px;
-            color: rgba(255, 255, 255, 0.95) !important;
+            color: rgba(255, 255, 255, 0.95);
             text-shadow: 0 2px 8px rgba(0,0,0,0.4);
         }
 
@@ -112,54 +95,51 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.3);
         }
 
-        /* --- 2. BAGIAN TENGAH (BANNER FITUR) --- */
+        /* --- 2. BANNER FITUR (MENGGANTUNG AMAN) --- */
         .section-middle {
-            margin-top: -80px;
+            margin-top: -60px; 
             position: relative;
             z-index: 10;
             margin-bottom: 60px;
         }
 
         .features-blur-card {
-            background: linear-gradient(135deg, rgba(20, 50, 38, 0.85), rgba(12, 34, 25, 0.95));
+            background: linear-gradient(135deg, rgba(20, 50, 38, 0.95), rgba(12, 34, 25, 0.98));
             border-radius: 35px;
             padding: 45px 30px;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 20px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
             border: 1px solid rgba(255,255,255,0.05);
         }
 
         .feature-box {
             text-align: center;
-            color: var(--text-light);
         }
 
         .feature-box i {
             font-size: 1.8rem;
             color: #dfb288;
             margin-bottom: 15px;
-            opacity: 0.9;
         }
 
         .feature-box h3 {
             font-size: 1rem;
             font-weight: 600;
             margin-bottom: 8px;
-            letter-spacing: 0.5px;
         }
 
         .feature-box p {
             font-size: 0.78rem;
-            opacity: 0.65;
+            opacity: 0.7;
             line-height: 1.5;
         }
 
-        /* --- 3. BAGIAN BAWAH (GRID 3x2 KOTAK) --- */
+        /* --- 3. KOTAK GRID DI PALING BAWAH (BERSIH DARI FOTO) --- */
         .section-bottom {
             padding-bottom: 80px;
+            background-color: var(--bg-bottom); /* Memastikan background polos */
         }
 
         .grid-holder {
@@ -194,7 +174,6 @@
             font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 12px;
-            letter-spacing: 0.5px;
         }
 
         .square-card p {
@@ -203,12 +182,10 @@
             opacity: 0.85;
         }
 
-        /* Pewarnaan Baris Produk */
+        /* Pewarnaan Grid */
         .prod-young { background-color: var(--young-coconut); color: #1c3325; }
         .prod-mature { background-color: var(--mature-coconut); color: var(--text-light); }
         .prod-charcoal { background-color: var(--coco-charcoal); color: var(--text-light); }
-
-        /* Pewarnaan Baris Profil */
         .prof-about { background-color: var(--card-about); color: var(--text-light); }
         .prof-vision { background-color: var(--card-vision); color: var(--text-light); }
         .prof-benefits { background-color: var(--card-benefits); color: #3d2516; }
@@ -224,7 +201,7 @@
             display: flex;
             align-items: center;
         }
-        .benefits-items li i { margin-right: 8px; font-size: 0.75rem; }
+        .benefits-items li i { margin-right: 8px; }
 
         /* --- WHATSAPP BUTTON & FOOTER --- */
         .wa-float {
@@ -242,7 +219,6 @@
             font-size: 28px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             z-index: 999;
-            text-decoration: none;
         }
 
         footer {
@@ -250,92 +226,41 @@
             padding: 30px 0;
             font-size: 0.8rem;
             opacity: 0.5;
-            background-color: #1a362a;
+            background-color: #15251e;
         }
 
-        /* --- RESPONSIVE UNTUK HP --- */
+        /* --- RESPONSIVE MOBILE --- */
         @media (max-width: 768px) {
-            .section-top { 
-                padding: 80px 0 150px 0 !important; 
-                background-position: center center !important; 
+            .hero-section-wrapper {
+                padding: 80px 0 120px 0;
             }
 
-            .hero-text {
-                max-width: 100% !important; 
-                text-align: left !important;   
-                align-items: flex-start !important; 
-                padding-left: 0 !important;
-            }
+            .hero-text h1 { font-size: 2.6rem; }
+            .hero-text p { font-size: 0.95rem; }
+            .section-middle { margin-top: -40px; margin-bottom: 40px; }
 
-            .hero-text h1 {
-                font-size: 2.8rem !important; 
-                margin-bottom: 12px !important;
-            }
-
-            .hero-text p {
-                font-size: 0.95rem !important;
-                line-height: 1.5 !important;
-                text-align: left !important;
-                margin-bottom: 30px !important;
-            }
-        
-            /* --- BANNER FITUR --- */
             .features-blur-card {
-                display: grid !important;
-                grid-template-columns: repeat(2, 1fr) !important; 
-                gap: 20px 15px !important; 
-                padding: 30px 20px !important;
-                background: linear-gradient(to bottom, rgba(32, 63, 49, 0.9) 0%, rgba(15, 15, 15, 0.95) 100%) !important;
-                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5); 
-                border: 1px solid rgba(255, 255, 255, 0.08);
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                padding: 25px 15px;
             }
 
-            .feature-box {
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: center !important; 
-                text-align: center !important;
-                padding: 5px !important;
-            }
-
-            .feature-box i {
-                font-size: 1.8rem !important; 
-                margin-bottom: 10px !important; 
-                display: inline-block !important;
-            }
-
-            .feature-box h3 {
-                font-size: 0.85rem !important;
-                margin-bottom: 6px !important; 
-                font-weight: 600;
-            }
-
-            .feature-box p {
-                font-size: 0.7rem !important;
-                line-height: 1.4 !important;
-                color: rgba(255, 255, 255, 0.7) !important; 
-                padding: 0 5px;
-            }
-
-            /* --- KOTAK GRID 6 BAWAH --- */
             .grid-holder {
-                grid-template-columns: repeat(2, 1fr) !important;
+                grid-template-columns: repeat(2, 1fr);
                 gap: 12px;
             }
 
             .square-card {
-                min-height: 210px !important;
-                padding: 20px 12px !important;
-                border-radius: 20px !important;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); 
+                min-height: 220px;
+                padding: 20px 12px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. BAGIAN ATAS: HERO SECTION FULL BACKGROUND WITHOUT BOX -->
-    <section class="section-top">
+    <!-- 1. HERO SECTION (FOTO LATAR BELAKANG HANYA DI SINI) -->
+    <section class="hero-section-wrapper">
         <div class="container">
             <div class="hero-text">
                 <h1>coco_ina.com</h1>
@@ -345,7 +270,7 @@
         </div>
     </section>
 
-    <!-- 2. BAGIAN TENGAH: BANNER FITUR -->
+    <!-- 2. BANNER FITUR -->
     <section class="section-middle">
         <div class="container">
             <div class="features-blur-card">
@@ -373,47 +298,41 @@
         </div>
     </section>
 
-    <!-- 3. BAGIAN BAWAH: 6 GRID KOTAK -->
+    <!-- 3. KOTAK GRID 6 (BERSIH DARI FOTO BACKGROUND) -->
     <section class="section-bottom">
         <div class="container">
             <div class="grid-holder">
                 
-                <!-- Kotak 1: Young Coconut -->
                 <div class="square-card prod-young">
                     <div class="icon">🥥</div>
                     <h3>Young Coconut</h3>
                     <p>Premium selection of young coconuts packed with refreshing natural water and tender meat, directly serving worldwide healthy beverage industries.</p>
                 </div>
 
-                <!-- Kotak 2: Mature Coconut -->
                 <div class="square-card prod-mature">
                     <div class="icon"><i class="fa-solid fa-circle" style="color: #5c3a21;"></i></div>
                     <h3>Mature Coconut</h3>
                     <p>Fully husked mature coconuts rich in high fat yields. Excellent raw materials for coconut oil, dessicated powder, and coconut milk production.</p>
                 </div>
 
-                <!-- Kotak 3: Coco Charcoal -->
                 <div class="square-card prod-charcoal">
                     <div class="icon"><i class="fa-solid fa-cubes" style="color: #333;"></i></div>
                     <h3>Coco Charcoal</h3>
                     <p>100% natural shell charcoal briquettes. Provides long-lasting high calories, zero odor, minimal ash, designed perfectly for shisha and grill setups.</p>
                 </div>
 
-                <!-- Kotak 4: About Us -->
                 <div class="square-card prof-about">
                     <div class="icon"><i class="fa-solid fa-circle-info"></i></div>
                     <h3>About Us</h3>
                     <p>Coco Ina is an established global supplier shipping premier Indonesian coconut products worldwide. We integrate local values with global corporate demands.</p>
                 </div>
 
-                <!-- Kotak 5: Vision & Mission -->
                 <div class="square-card prof-vision">
                     <div class="icon"><i class="fa-solid fa-bullseye"></i></div>
                     <h3>Vision & Mission</h3>
                     <p>To lead sustainable global coconut supply chains, giving back support to local farming communities while securing top trading consistency for global clients.</p>
                 </div>
 
-                <!-- Kotak 6: Key Benefits -->
                 <div class="square-card prof-benefits">
                     <div class="icon"><i class="fa-solid fa-bars"></i></div>
                     <h3>Key Benefits</h3>
@@ -436,20 +355,9 @@
         </div>
     </footer>
 
-    <!-- FLOAT WHATSAPP BUTTON -->
-    <a href="https://wa.me/6281234567890?text=Hello%20Coco%20Ina,%20I%20am%20interested%20in%20your%20products." class="wa-float" target="_blank">
+    <!-- FLOAT WHATSAPP -->
+    <a href="https://wa.me/6281234567890" class="wa-float" target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
-
-    <script>
-        window.addEventListener('scroll', function() {
-            const heroSection = document.querySelector('.section-top');
-            let scrollPosition = window.pageYOffset;
-            
-            if (window.innerWidth > 0) { 
-                heroSection.style.backgroundPositionY = (scrollPosition * 0.4) + 'px';
-            }
-        });
-    </script>
 </body>
 </html>
