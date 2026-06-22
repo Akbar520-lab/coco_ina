@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>coco_ina.com - Global Coconut Supplier</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2=family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -14,12 +12,10 @@
             --bg-bottom: #1c3027; 
             --text-light: #ffffff;
             
-            /* Warna Produk */
+            /* Warna Produk & Profil */
             --young-coconut: #8ca668; 
             --mature-coconut: #3d2516; 
             --coco-charcoal: #141414; 
-            
-            /* Warna Profil Bawah */
             --card-about: #39634f;
             --card-vision: #203f31;
             --card-benefits: #c3a484;
@@ -39,84 +35,135 @@
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* --- 1. HERO SECTION --- */
+        /* --- 1. HERO SECTION (LAYOUT DIAGONAL SESUAI CORETAAN) --- */
         .hero-section-wrapper {
-            background: url('hero-bg.png') no-repeat center center;
-            background-size: cover;
-            padding: 100px 0 80px 0; 
             position: relative;
+            width: 100%;
+            min-height: 650px;
+            background-color: #1e3b2f; /* Warna dasar hijau daun tua */
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 80px 0;
+        }
+
+        /* Sisi Kanan: Area Cokelat + Daun Kelapa */
+        .hero-section-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 45%;
+            height: 100%;
+            /* Warna cokelat estetik kelapa */
+            background-color: #8c6239; 
+            /* Gambar daun kelapa dipasang di area lingkaran kanan */
+            background-image: url('daun-kelapa.png'); 
+            background-size: cover;
+            background-position: center;
+            /* Membuat potongan miring diagonal sesuai coretan */
+            clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+            z-index: 1;
+        }
+
+        /* Efek Bayangan Hitam Lembut di Sepanjang Garis Batas Diagonal */
+        .hero-section-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 43%;
+            width: 50px;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%);
+            transform: skewX(-12deg); /* Menyesuaikan kemiringan garis */
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* Konten Hero di Sisi Kiri */
+        .hero-content-grid {
+            position: relative;
+            z-index: 3;
+            display: grid;
+            grid-template-columns: 60% 40%;
+            align-items: center;
             width: 100%;
         }
 
         .hero-text {
-            max-width: 750px; 
+            max-width: 650px; 
             text-align: left;   
             display: flex;
             flex-direction: column;
             align-items: flex-start; 
-            margin-bottom: 60px; 
         }
 
         .hero-text h1 {
-            font-size: 4rem;
+            font-size: 4.5rem;
             font-weight: 700;
             line-height: 1.1;
             margin-bottom: 20px;
             color: #ffffff;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.4); 
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3); 
         }
 
         .hero-text p {
             font-size: 1.15rem;
             line-height: 1.6;
-            margin-bottom: 35px;
-            color: rgba(255, 255, 255, 0.95);
-            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+            margin-bottom: 45px; /* Memberi jarak ke bawah untuk tombol sesuai coretan kotak */
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
         }
 
+        /* Tombol Contact Us (Kotak Merah di Coretan) */
         .btn-main {
             display: inline-block;
             background-color: #dfb288;
             color: #3d2516;
-            padding: 14px 40px;
-            border-radius: 25px;
+            padding: 15px 45px;
+            border-radius: 12px; /* Dibuat lebih berbentuk kotak transisi melengkung elegan */
             text-decoration: none;
-            font-weight: 600;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
             transition: all 0.3s ease;
         }
 
         .btn-main:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+            background-color: #e5bfa0;
         }
 
-        /* --- 2. CARD FITUR (PERSIS SEPERTI IMAGE_AD14AA.JPG) --- */
+        /* --- 2. CARD FITUR (HIJAU PEKAT TOSCA) --- */
+        .features-wrapper-section {
+            background-color: var(--bg-bottom);
+            padding-top: 60px;
+        }
+
         .features-card-container {
-            background-color: #1a4435; /* Warna hijau tosca tua pekat sesuai gambar kanan */
-            border-radius: 35px; /* Sudut melengkung halus */
+            background-color: #1a4435; 
+            border-radius: 35px; 
             padding: 55px 40px;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 30px;
-            width: 100%;
             box-shadow: 0 20px 45px rgba(0,0,0,0.3);
         }
 
         .feature-box {
-            text-align: center; /* Rata tengah untuk ikon dan teks */
+            text-align: center; 
         }
 
         .feature-box i {
             font-size: 2.6rem;
-            color: #ffffff; /* Ikon putih bersih */
+            color: #ffffff; 
             margin-bottom: 20px;
-            display: inline-block;
         }
 
         .feature-box h3 {
@@ -124,12 +171,11 @@
             font-weight: 700;
             margin-bottom: 12px;
             color: #ffffff;
-            letter-spacing: 0.3px;
         }
 
         .feature-box p {
             font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.8); /* Teks putih transparan lembut */
+            color: rgba(255, 255, 255, 0.8); 
             line-height: 1.6;
         }
 
@@ -162,24 +208,10 @@
             transform: scale(1.02);
         }
 
-        .square-card .icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
+        .square-card .icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .square-card h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 12px; }
+        .square-card p { font-size: 0.82rem; line-height: 1.6; opacity: 0.85; }
 
-        .square-card h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .square-card p {
-            font-size: 0.82rem;
-            line-height: 1.6;
-            opacity: 0.85;
-        }
-
-        /* Warna Grid */
         .prod-young { background-color: var(--young-coconut); color: #1c3325; }
         .prod-mature { background-color: var(--mature-coconut); color: var(--text-light); }
         .prod-charcoal { background-color: var(--coco-charcoal); color: var(--text-light); }
@@ -187,20 +219,11 @@
         .prof-vision { background-color: var(--card-vision); color: var(--text-light); }
         .prof-benefits { background-color: var(--card-benefits); color: #3d2516; }
 
-        .benefits-items {
-            list-style: none;
-            text-align: left;
-            width: 100%;
-        }
-        .benefits-items li {
-            font-size: 0.8rem;
-            margin-bottom: 6px;
-            display: flex;
-            align-items: center;
-        }
+        .benefits-items { list-style: none; text-align: left; width: 100%; }
+        .benefits-items li { font-size: 0.8rem; margin-bottom: 6px; display: flex; align-items: center; }
         .benefits-items li i { margin-right: 8px; }
 
-        /* FLOATING WHATSAPP & FOOTER */
+        /* FOOTER & WHATSAPP */
         .wa-float {
             position: fixed;
             bottom: 30px;
@@ -227,51 +250,44 @@
         }
 
         /* --- RESPONSIVE MOBILE --- */
-        @media (max-width: 768px) {
-            .hero-section-wrapper {
-                padding: 60px 0 60px 0;
-            }
-
-            .hero-text h1 { font-size: 2.6rem; }
-            .hero-text p { font-size: 0.95rem; margin-bottom: 25px; }
-
-            .features-card-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 25px;
-                padding: 35px 20px;
-                border-radius: 24px;
-            }
-
-            .grid-holder {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-            }
+        @media (max-width: 992px) {
+            .hero-section-wrapper::before { width: 100%; opacity: 0.15; clip-path: none; }
+            .hero-section-wrapper::after { display: none; }
+            .hero-content-grid { grid-template-columns: 1fr; }
+            .features-card-container { grid-template-columns: repeat(2, 1fr); }
         }
 
-        @media (max-width: 480px) {
-            .features-card-container {
-                grid-template-columns: 1fr;
-            }
-            .grid-holder {
-                grid-template-columns: 1fr;
-            }
+        @media (max-width: 768px) {
+            .hero-text h1 { font-size: 3rem; }
+            .grid-holder { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 500px) {
+            .features-card-container { grid-template-columns: 1fr; }
+            .grid-holder { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. HERO SECTION -->
     <section class="hero-section-wrapper">
         <div class="container">
-            
-            <!-- Teks Utama Hero -->
-            <div class="hero-text">
-                <h1>coco_ina.com</h1>
-                <p>COCO INA - Your Premium Global Coconut Partner. Delivering the finest quality of tropical coconut derivatives tailored perfectly for global industrial demands.</p>
-                <a href="https://wa.me/6281234567890" target="_blank" class="btn-main">Contact Us Now</a>
-            </div>
+            <div class="hero-content-grid">
+                
+                <div class="hero-text">
+                    <h1>coco_ina.com</h1>
+                    <p>COCO INA - Your Premium Global Coconut Partner. Delivering the finest quality of tropical coconut derivatives tailored perfectly for global industrial demands.</p>
+                    <a href="https://wa.me/6281234567890" target="_blank" class="btn-main">Contact Us Now</a>
+                </div>
+                
+                <div></div>
 
-            <!-- 2. CARD BOX BARU (WARNA & STYLE PERSIS SEPERTI GAMBAR KANAN) -->
+            </div>
+        </div>
+    </section>
+
+    <section class="features-wrapper-section">
+        <div class="container">
             <div class="features-card-container">
                 <div class="feature-box">
                     <i class="fa-solid fa-seedling"></i>
@@ -294,11 +310,9 @@
                     <p>24/7 client coordination channels tailored for international buyers.</p>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- 3. KOTAK GRID 6 BAWAH -->
     <section class="section-bottom">
         <div class="container">
             <div class="grid-holder">
@@ -348,14 +362,12 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <div class="container">
             <p>&copy; 2026 coco_ina.com. All Rights Reserved. | Your Global Coconut Partner</p>
         </div>
     </footer>
 
-    <!-- FLOAT WHATSAPP -->
     <a href="https://wa.me/6281234567890" class="wa-float" target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
