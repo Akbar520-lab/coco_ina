@@ -246,43 +246,50 @@
         }
  
         
-
-/* --- RESPONSIVE UNTUK HP (PAS DI LAYAR & TANPA GESER) --- */
-        @media (max-width: 992px) {
-            .features-blur-card { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-            .grid-holder { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-        }
-
-        @media (max-width: 768px) {
+@media (max-width: 768px) {
             .section-top { text-align: center; padding: 50px 0 90px 0; }
             .hero-text h1 { font-size: 2.6rem; }
             
-            /* --- BANNER FITUR (Membagi 2x2 Pas Layar) --- */
+            /* --- BANNER FITUR (Diperbaiki agar Pas di Tengah & Presisi) --- */
             .features-blur-card {
-                grid-template-columns: repeat(2, 1fr); 
-                gap: 15px;
-                padding: 25px 20px;
-                /* Efek gradasi: atas hijau tua bertekstur, bawah hitam transparan */
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important; 
+                gap: 20px 15px !important; /* Jarak atas-bawah 20px, kiri-kanan 15px */
+                padding: 30px 20px !important;
                 background: linear-gradient(to bottom, rgba(32, 63, 49, 0.9) 0%, rgba(15, 15, 15, 0.95) 100%) !important;
-                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); /* Efek bayangan tegas di bawah card */
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5); 
                 border: 1px solid rgba(255, 255, 255, 0.08);
             }
 
-            .feature-box i {
-                font-size: 1.5rem;
-                margin-bottom: 8px;
+            /* Mengatur ulang isi box agar berbaris rapi dari atas ke bawah (Center) */
+            .feature-box {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important; /* Membuat ikon & teks di tengah */
+                text-align: center !important;
+                padding: 5px !important;
+            }
+
+            .feature-box i, .feature-box .icon, .feature-box img {
+                font-size: 1.8rem !important; /* Memperbesar ukuran ikon sedikit */
+                margin-bottom: 10px !important; /* Jarak aman antara ikon dan judul */
+                display: inline-block !important;
             }
 
             .feature-box h3 {
-                font-size: 0.85rem;
+                font-size: 0.85rem !important;
+                margin-bottom: 6px !important; /* Jarak antara judul dan deskripsi */
+                font-weight: 600;
             }
 
             .feature-box p {
-                font-size: 0.7rem;
-                line-height: 1.3;
+                font-size: 0.7rem !important;
+                line-height: 1.4 !important;
+                color: rgba(255, 255, 255, 0.7) !important; /* Membuat teks deskripsi sedikit soft */
+                padding: 0 5px;
             }
 
-            /* --- KOTAK GRID 6 BAWAH (Membagi Jelas 2 Kolom Sejajar) --- */
+            /* --- KOTAK GRID 6 BAWAH --- */
             .grid-holder {
                 grid-template-columns: repeat(2, 1fr) !important;
                 gap: 12px;
@@ -292,27 +299,7 @@
                 min-height: 210px !important;
                 padding: 20px 12px !important;
                 border-radius: 20px !important;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); /* Efek bayangan timbul */
-            }
-
-            .square-card h3 {
-                font-size: 0.95rem;
-                margin-bottom: 6px;
-            }
-
-            .square-card p {
-                font-size: 0.72rem;
-                line-height: 1.4;
-            }
-            
-            .square-card .icon {
-                font-size: 1.8rem;
-                margin-bottom: 8px;
-            }
-
-            .benefits-items li {
-                font-size: 0.7rem;
-                margin-bottom: 4px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); 
             }
         }
     </style>
