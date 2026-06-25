@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>coco_ina.com - Global Coconut Supplier</title>
-    <link href="https://fonts.googleapis.com/css2=family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -40,19 +40,18 @@
             padding: 0 20px;
         }
 
-        /* --- 1. HERO SECTION (LAYOUT DIAGONAL SESUAI CORETAAN) --- */
+        /* --- 1. HERO SECTION (LAYOUT DIAGONAL) --- */
         .hero-section-wrapper {
             position: relative;
             width: 100%;
             min-height: 650px;
-            background-color: #1e3b2f; /* Warna dasar hijau daun tua */
+            background-color: #1e3b2f; 
             overflow: hidden;
             display: flex;
             align-items: center;
             padding: 80px 0;
         }
 
-        /* Sisi Kanan: Area Cokelat + Daun Kelapa */
         .hero-section-wrapper::before {
             content: '';
             position: absolute;
@@ -60,18 +59,14 @@
             right: 0;
             width: 45%;
             height: 100%;
-            /* Warna cokelat estetik kelapa */
             background-color: #8c6239; 
-            /* Gambar daun kelapa dipasang di area lingkaran kanan */
             background-image: url('daun-kelapa.png'); 
             background-size: cover;
             background-position: center;
-            /* Membuat potongan miring diagonal sesuai coretan */
             clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
             z-index: 1;
         }
 
-        /* Efek Bayangan Hitam Lembut di Sepanjang Garis Batas Diagonal */
         .hero-section-wrapper::after {
             content: '';
             position: absolute;
@@ -80,12 +75,11 @@
             width: 50px;
             height: 100%;
             background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%);
-            transform: skewX(-12deg); /* Menyesuaikan kemiringan garis */
+            transform: skewX(-12deg);
             z-index: 2;
             pointer-events: none;
         }
 
-        /* Konten Hero di Sisi Kiri */
         .hero-content-grid {
             position: relative;
             z-index: 3;
@@ -115,18 +109,17 @@
         .hero-text p {
             font-size: 1.15rem;
             line-height: 1.6;
-            margin-bottom: 45px; /* Memberi jarak ke bawah untuk tombol sesuai coretan kotak */
+            margin-bottom: 45px;
             color: rgba(255, 255, 255, 0.9);
             text-shadow: 0 2px 5px rgba(0,0,0,0.3);
         }
 
-        /* Tombol Contact Us (Kotak Merah di Coretan) */
         .btn-main {
             display: inline-block;
             background-color: #dfb288;
             color: #3d2516;
             padding: 15px 45px;
-            border-radius: 12px; /* Dibuat lebih berbentuk kotak transisi melengkung elegan */
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 700;
             letter-spacing: 0.5px;
@@ -140,32 +133,36 @@
             background-color: #e5bfa0;
         }
 
-       /* --- 2. SECTON LUAR/BACKGROUND UTAMA (PERBAIKAN: TEKSTUR DI BACKGROUND NYA) --- */
+        /* --- 2. SECTION LUAR / BACKGROUND UTAMA (AKURAT SESUAI MOCKUP) --- */
         .features-wrapper-section {
-            /* Warna hijau pekat disesuaikan agar menyatu pas dengan tekstur garis */
-            background-color: #17382b; 
+            /* Warna hijau medium-terang segar yang sama persis dengan sisi kanan mockup */
+            background-color: #33664d; 
             
-            /* Memasang gambar tekstur bergelombang langsung di latar belakang utama */
-            background-image: url('image_410964.jpg'); 
+            /* Menggunakan gabungan linear-gradient lembut & gambar tekstur lo */
+            background-image: 
+                linear-gradient(135deg, rgba(51, 102, 77, 0.4) 0%, rgba(24, 54, 40, 0.8) 100%), 
+                url('image_410964.jpg'); 
+            
             background-size: cover;
             background-position: center;
             
-            /* Teknik blend mode agar pola garis menyatu estetik dengan warna hijau luarnya */
-            background-blend-mode: overlay; 
+            /* Efek blend mode 'luminosity' agar serat timbul & garis pasirnya tajam dan hidup keluar warna hijaunya */
+            background-blend-mode: luminosity; 
             
-            padding: 80px 0;
+            padding: 100px 0;
             position: relative;
         }
 
-        /* Mengembalikan tampilan card fitur menjadi clean tanpa tekstur di dalamnya */
+        /* Tampilan Card Utama: Gelap Semu Hijau Botol tanpa tekstur di dalam dirinya sendiri */
         .features-card-container {
-            background-color: #1a4435; 
-            border-radius: 35px; 
-            padding: 55px 40px;
+            background: linear-gradient(180deg, #1d4234 0%, #112b21 100%);
+            border-radius: 40px; 
+            padding: 60px 45px;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            box-shadow: 0 20px 45px rgba(0,0,0,0.3);
+            gap: 35px;
+            box-shadow: 0 30px 70px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .feature-box {
@@ -173,21 +170,23 @@
         }
 
         .feature-box i {
-            font-size: 2.6rem;
+            font-size: 2.8rem;
             color: #ffffff; 
-            margin-bottom: 20px;
+            margin-bottom: 22px;
+            opacity: 0.95;
         }
 
         .feature-box h3 {
-            font-size: 1.15rem;
+            font-size: 1.25rem;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             color: #ffffff;
+            letter-spacing: 0.3px;
         }
 
         .feature-box p {
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.75);
             line-height: 1.6;
         }
 
@@ -260,7 +259,8 @@
             opacity: 0.5;
             background-color: #15251e;
         }
-/* --- RESPONSIVE MOBILE (COKELAT TETAP DI KANAN & TEKSTUR PAS DI HP) --- */
+
+        /* --- RESPONSIVE MOBILE OPTIMIZATION --- */
         @media (max-width: 992px) {
             .hero-section-wrapper {
                 flex-direction: row; 
@@ -308,6 +308,7 @@
             }
 
             .features-wrapper-section {
+                padding: 60px 0;
                 background-size: cover;
                 background-position: center center;
             }
@@ -328,25 +329,22 @@
                 font-size: 2.2rem;
             }
 
-            /* Tampilan kartu menjadi 1 kolom vertikal di HP kecil */
+            .features-wrapper-section {
+                background-size: cover;
+                background-position: center center;
+            }
+
             .features-card-container {
                 grid-template-columns: 1fr;
                 gap: 25px;
                 padding: 40px 20px;
-                /* Mengunci ulang posisi background tekstur agar polanya tetap estetik memanjang ke bawah */
-                background-size: cover;
             }
-            .features-card-container {
-                            grid-template-columns: 1fr;
-                            gap: 25px;
-                            padding: 40px 20px;
-                        }
-                    }
+
             .grid-holder {
                 grid-template-columns: 1fr;
             }
-                  
-        </style>
+        }
+    </style>
 </head>
 <body>
 
@@ -448,7 +446,7 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/6281234567890" class="wa-float" target="_blank">
+    <a href="https://wa.me/62895393952043" class="wa-float" target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 </body>
