@@ -140,30 +140,54 @@
             background-color: #e5bfa0;
         }
 
-        /* --- 2. CARD FITUR (HIJAU PEKAT TOSCA) --- */
+        /* --- 2. CARD FITUR (DENGAN BACKGROUND TEKSTUR GARIS-GARIS BERGELOMBANG) --- */
         .features-wrapper-section {
             background-color: var(--bg-bottom);
             padding-top: 60px;
         }
 
         .features-card-container {
+            /* Warna dasar hijau tosca pekat sesuai desain kamu */
             background-color: #1a4435; 
+            
+            /* Memasukkan gambar tekstur garis-garis bergelombang */
+            background-image: url('image_410964.jpg'); 
+            background-size: cover;
+            background-position: center;
+            
+            /* Trik CSS agar gambar tekstur menyatu dan berbaur estetik dengan warna hijau */
+            background-blend-mode: overlay; 
+            
             border-radius: 35px; 
             padding: 55px 40px;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 30px;
             box-shadow: 0 20px 45px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        /* Sedikit efek bayangan dalam agar tekstur terlihat lebih tenggelam dan premium */
+        .features-card-container::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            border-radius: 35px;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.4);
+            pointer-events: none;
         }
 
         .feature-box {
             text-align: center; 
+            position: relative;
+            z-index: 2; /* Memastikan teks tetap berada di atas tekstur background */
         }
 
         .feature-box i {
             font-size: 2.6rem;
             color: #ffffff; 
             margin-bottom: 20px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
         .feature-box h3 {
@@ -171,12 +195,14 @@
             font-weight: 700;
             margin-bottom: 12px;
             color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
         .feature-box p {
             font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.8); 
+            color: rgba(255, 255, 255, 0.9); /* Dibuat sedikit lebih kontras agar nyaman dibaca di atas tekstur */
             line-height: 1.6;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
 
         /* --- 3. KOTAK GRID 6 DI BAWAH --- */
@@ -248,27 +274,24 @@
             opacity: 0.5;
             background-color: #15251e;
         }
-/* --- RESPONSIVE MOBILE (PERBAIKAN AGAR COKELAT TETAP MUNCUL DI HP) --- */
- /* --- RESPONSIVE MOBILE (COKELAT TETAP DI KANAN SEPERTI LAPTOP) --- */
+/* --- RESPONSIVE MOBILE (COKELAT TETAP DI KANAN & TEKSTUR PAS DI HP) --- */
         @media (max-width: 992px) {
             .hero-section-wrapper {
-                flex-direction: row; /* Tetap horizontal */
+                flex-direction: row; 
                 align-items: center;
                 padding: 60px 0;
             }
 
-            /* Area cokelat tetap di kanan, tapi lebarnya dikurangi agar tidak menabrak teks */
             .hero-section-wrapper::before {
-                width: 35%; /* Mengurangi lebar di HP agar teks kiri punya ruang */
+                width: 35%; 
                 height: 100%;
                 top: 0;
                 bottom: auto;
                 right: 0;
-                clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%); /* Kemiringan diagonal dipertahankan */
+                clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%); 
                 z-index: 1;
             }
 
-            /* Menyesuaikan bayangan garis pembatas diagonal di HP */
             .hero-section-wrapper::after {
                 top: 0;
                 bottom: auto;
@@ -280,43 +303,51 @@
                 z-index: 2;
             }
 
-            /* Grid teks dibuat 1 kolom tapi diberi padding kanan agar tidak menembus area cokelat */
             .hero-content-grid {
                 grid-template-columns: 1fr;
             }
 
             .hero-text {
-                max-width: 70%; /* Batasi teks agar berhenti sebelum area cokelat */
+                max-width: 70%; 
                 padding-right: 15px;
             }
 
             .hero-text h1 {
-                font-size: 2.8rem; /* Perkecil ukuran judul agar muat di layar HP */
+                font-size: 2.8rem; 
             }
 
             .hero-text p {
-                font-size: 0.95rem; /* Perkecil ukuran paragraf */
+                font-size: 0.95rem;
                 margin-bottom: 30px;
             }
 
+            /* --- PENYESUAIAN KARTU & TEKSTUR BACKGROUND DI HP --- */
             .features-card-container {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
-                padding: 30px 20px;
+                padding: 35px 20px;
+                /* Memastikan ukuran gambar tekstur beradaptasi dengan baik di layar HP */
+                background-size: cover;
+                background-position: center center;
             }
         }
 
         @media (max-width: 540px) {
             .hero-text {
-                max-width: 65%; /* Lebih menyempit sedikit untuk HP yang sangat kecil */
+                max-width: 65%; 
             }
             
             .hero-text h1 {
                 font-size: 2.2rem;
             }
 
+            /* Tampilan kartu menjadi 1 kolom vertikal di HP kecil */
             .features-card-container {
                 grid-template-columns: 1fr;
+                gap: 25px;
+                padding: 40px 20px;
+                /* Mengunci ulang posisi background tekstur agar polanya tetap estetik memanjang ke bawah */
+                background-size: cover;
             }
 
             .grid-holder {
