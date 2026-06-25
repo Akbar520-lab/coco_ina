@@ -140,54 +140,42 @@
             background-color: #e5bfa0;
         }
 
-        /* --- 2. CARD FITUR (DENGAN BACKGROUND TEKSTUR GARIS-GARIS BERGELOMBANG) --- */
+       /* --- 2. SECTON LUAR/BACKGROUND UTAMA (PERBAIKAN: TEKSTUR DI BACKGROUND NYA) --- */
         .features-wrapper-section {
-            background-color: var(--bg-bottom);
-            padding-top: 60px;
-        }
-
-        .features-card-container {
-            /* Warna dasar hijau tosca pekat sesuai desain kamu */
-            background-color: #1a4435; 
+            /* Warna hijau pekat disesuaikan agar menyatu pas dengan tekstur garis */
+            background-color: #17382b; 
             
-            /* Memasukkan gambar tekstur garis-garis bergelombang */
+            /* Memasang gambar tekstur bergelombang langsung di latar belakang utama */
             background-image: url('image_410964.jpg'); 
             background-size: cover;
             background-position: center;
             
-            /* Trik CSS agar gambar tekstur menyatu dan berbaur estetik dengan warna hijau */
+            /* Teknik blend mode agar pola garis menyatu estetik dengan warna hijau luarnya */
             background-blend-mode: overlay; 
             
+            padding: 80px 0;
+            position: relative;
+        }
+
+        /* Mengembalikan tampilan card fitur menjadi clean tanpa tekstur di dalamnya */
+        .features-card-container {
+            background-color: #1a4435; 
             border-radius: 35px; 
             padding: 55px 40px;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 30px;
             box-shadow: 0 20px 45px rgba(0,0,0,0.3);
-            position: relative;
-        }
-
-        /* Sedikit efek bayangan dalam agar tekstur terlihat lebih tenggelam dan premium */
-        .features-card-container::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            border-radius: 35px;
-            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.4);
-            pointer-events: none;
         }
 
         .feature-box {
             text-align: center; 
-            position: relative;
-            z-index: 2; /* Memastikan teks tetap berada di atas tekstur background */
         }
 
         .feature-box i {
             font-size: 2.6rem;
             color: #ffffff; 
             margin-bottom: 20px;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
         .feature-box h3 {
@@ -195,14 +183,12 @@
             font-weight: 700;
             margin-bottom: 12px;
             color: #ffffff;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
         .feature-box p {
             font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.9); /* Dibuat sedikit lebih kontras agar nyaman dibaca di atas tekstur */
+            color: rgba(255, 255, 255, 0.8);
             line-height: 1.6;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
 
         /* --- 3. KOTAK GRID 6 DI BAWAH --- */
@@ -321,14 +307,15 @@
                 margin-bottom: 30px;
             }
 
-            /* --- PENYESUAIAN KARTU & TEKSTUR BACKGROUND DI HP --- */
+            .features-wrapper-section {
+                background-size: cover;
+                background-position: center center;
+            }
+
             .features-card-container {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
                 padding: 35px 20px;
-                /* Memastikan ukuran gambar tekstur beradaptasi dengan baik di layar HP */
-                background-size: cover;
-                background-position: center center;
             }
         }
 
@@ -349,7 +336,12 @@
                 /* Mengunci ulang posisi background tekstur agar polanya tetap estetik memanjang ke bawah */
                 background-size: cover;
             }
-
+            .features-card-container {
+                            grid-template-columns: 1fr;
+                            gap: 25px;
+                            padding: 40px 20px;
+                        }
+                    }
             .grid-holder {
                 grid-template-columns: 1fr;
             }
